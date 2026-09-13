@@ -92,11 +92,14 @@
 
 - **奖励完全基于规则（rule-based）**，原文明确：**文本分类任务特别适合规则奖励**——**直接把模型最终预测与真实标签比对**即可。
 
-$$R_{format} = \begin{cases} 1, & \text{格式正确} \\ 0, & \text{其他} \end{cases} \quad (2)$$
+$$R_{format} = \begin{cases} 1, & \text{valid} \\ 0, & \text{otherwise} \end{cases} \quad (2)$$
 
-$$R_{accuracy} = \begin{cases} 1, & \text{分类正确} \\ 0, & \text{其他} \end{cases} \quad (3)$$
+$$R_{accuracy} = \begin{cases} 1, & \text{correct} \\ 0, & \text{otherwise} \end{cases} \quad (3)$$
 
 $$R_{total} = R_{format} + R_{accuracy} \quad (4)$$
+
+- $R_{format}$：**格式奖励**——**输出遵循 GTA 规定的结构时给 1，否则给 0**。
+- $R_{accuracy}$：**准确奖励**——**最终预测与真实标签一致时给 1，否则给 0**。
 
 - **奖励构成只有两项**：**格式分 + 准确分**，**各占 1 分**（等权）。
 - **不调用任何奖励模型（reward model）**，**不依赖语义相似度指标**。

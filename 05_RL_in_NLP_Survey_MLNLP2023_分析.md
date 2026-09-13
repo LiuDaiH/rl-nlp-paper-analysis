@@ -59,7 +59,7 @@ $$Q(s,a) \leftarrow Q(s,a) + \alpha\left[r + \gamma \max_{a'} Q(s',a') - Q(s,a)\
 
 **策略梯度（综述式 2）**：
 
-$$\nabla J(\theta) = \mathbb{E}_{\substack{a \sim \pi_\theta \\ s \sim \mu_{\pi_\theta}}}\left[Q^{\pi_\theta}(s,a)\,\nabla \log \pi_\theta(a \mid s)\right]$$
+$$\nabla J(\theta) = \mathbb{E}_{a \sim \pi_\theta,\ s \sim \mu_{\pi_\theta}}\left[Q^{\pi_\theta}(s,a)\,\nabla \log \pi_\theta(a \mid s)\right]$$
 
 **【通俗理解】**
 

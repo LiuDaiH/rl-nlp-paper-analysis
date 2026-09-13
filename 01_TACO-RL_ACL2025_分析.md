@@ -85,7 +85,9 @@ $$p_i=\mathrm{softmax}(Wh_i+b),\quad W\in\mathbb{R}^{2\times d},\ b\in\mathbb{R}
   - 奖励 $r$ 取两份输出的**任务指标差异** $M(y_{comp},y_{orig})$。
 - 叠加**压缩率门控**：
 
-$$r = \begin{cases} M(y_{comp},y_{orig}), & \text{若 } -L \le \delta < L \\ r_0, & \text{其他} \end{cases} \qquad \delta = |x_c| - c\cdot|x|$$
+$$r = \begin{cases} M(y_{comp},y_{orig}), & -L \le \delta < L \\ r_0, & \text{otherwise} \end{cases} \qquad \delta = |x_c| - c\cdot|x|$$
+
+即：**压缩率落在容忍范围 $[-L,\ L)$ 内时取任务指标 $M$；否则取固定负奖励 $r_0$**。
 
 - 含义：**先约束压缩率、再优化效果**，防止策略退化为"全留"或"过度删除"。
 
