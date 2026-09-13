@@ -1,0 +1,25 @@
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+
+# 论文原文 PDF（版权归原作者与出版方，本仓库只提供链接，不收录全文）
+*.pdf
+
+# 工具与缓存
+.workbuddy/
+node_modules/
+__pycache__/
+*.py[cod]
+.cache/
+.pytest_cache/
+
+# 中间产物
+*.tmp
+*.bak
+*_extract.txt
+chapter*.txt
+gh_portable*
